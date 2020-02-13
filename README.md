@@ -1,37 +1,26 @@
-## Welcome to GitHub Pages
+## A light png to icns converter written in shell for macOS
 
-You can use the [editor on GitHub](https://github.com/Unbinilium/Creicns/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+## How it works?
+The `.icns` file format is *Apple Icon Image* used on macOS, it may contained the icons of `16×16`, `32×32`, `48×48`, `128×128`, `256×256`, `512×512`, and `1024×1024` pixels in `.png` format.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+Firstly we load raw icon image from the path you specialized, then use `sips` convert the raw icon image to `.png` format if it not a png originally. Secondly we use `sips` to resize the raw icon image into multiple png files with different sizes which meets the size requirements by `iconutil`, and store the resized png files in `.iconset`. Lastly the `.icns` could be created by using `iconutil`.
 
-### Markdown
+## Usage
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+Please download the script first by running this command below  in your `Terminal`:
 
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+```shell
+curl https://raw.githubusercontent.com/Unbinilium/Creicns/master/creicns.sh --output creicns.sh
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+Then run `creicns.sh` in `Terminal` with raw images path augmented:
 
-### Jekyll Themes
+```shell
+bash creicns.sh <raw image path>
+```
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/Unbinilium/Creicns/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+For example:
 
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+```shell
+bash creicns.sh /Desktop/Icon.png
+```
