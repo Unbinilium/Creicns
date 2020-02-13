@@ -19,8 +19,9 @@ Then run `creicns.sh` in `Terminal` with raw images path augmented:
 bash creicns.sh <raw image path>
 ```
 
-For example:
+For example, there's a `Icon.png` on my `Desktop`:
 
 ```shell
 bash creicns.sh /Desktop/Icon.png
 ```
+Then the file `Icon.icns` generated on the same path where the `Icon.png` is.
